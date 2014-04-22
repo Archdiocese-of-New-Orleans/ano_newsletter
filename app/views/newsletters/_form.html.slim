@@ -1,0 +1,11 @@
+= bootstrap_form_for(@newsletter, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f|
+
+  = f.text_field :released_at, control_col: "col-sm-3", label: 'Publish on', help: 'Select when to make the newsletter available for download.', class:'datetimepicker', data: { "date-format" => 'YYYY/MM/DD hh:mm A'}, value: (f.object.released_at.strftime("%Y-%m-%d %H:%M %P") rescue nil)
+  = f.text_field :title, help: 'Optional title'
+  = f.text_area :description, help: 'Optional description', rows: 5
+  = f.file_field :asset, label: 'Upload newsletter', help: '.pdf, .doc, etc.'
+
+  = f.form_group do
+    = f.submit nil, data: { disable_with: "Please wait..." }
+    | &nbsp;
+    = button_tag "Cancel", :type => 'button', :class => "btn btn-link", :onclick => "location.href = '#{newsletters_path}'"

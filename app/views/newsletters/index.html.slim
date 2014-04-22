@@ -1,0 +1,47 @@
+- authorized = @authorization_adapter.try(:authorized?, :new, Newsletter)
+
+.container-fluid
+  .row
+    .col-xs-7
+      h1 Newsletters
+    .col-xs-5
+      - if authorized
+        .pull-right
+          = link_to '+ New Newsletter', new_newsletter_path
+        .clearfix
+
+  .row
+
+    .col-sm-9
+      -if @newsletters.any?
+        - @newsletters.each do |newsletter|
+          .row
+            .col-sm-12
+              ul.media-list
+                li.media
+                  .media-body
+                    span.h4=newsletter.pretty_date
+                    -if authorized
+                      span
+                        = " ("
+                        = link_to 'edit', edit_newsletter_path(newsletter)
+                        = "|"
+                        = link_to 'delete', newsletter_path(newsletter), method: :delete, data: {confirm: 'Are you sure?'}
+                        = ")"
+                    .text-muted=newsletter.title
+                    p=newsletter.description
+
+      - else
+        .row
+          .col-sm-12
+            i No newsletters at the moment
+
+
+
+
+    .col-sm-3
+      .row
+        .col-sm-12
+          - if @current_newsletter
+            .well.well-sm Download our current #{link_to @current_newsletter.pretty_date, @current_newsletter.asset.url} newsletter.  You will need the #{link_to 'Adobe Acrobat reader', 'https://get.adobe.com/reader/', target: :blank } to open the file.
+
