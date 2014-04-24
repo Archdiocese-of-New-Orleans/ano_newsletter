@@ -5,7 +5,7 @@ class AnoNewsletter::ApplicationController < ApplicationController
   private
 
   def auth
-    ano_newsletter_current_user = true if Rails.env.development?
+    ano_newsletter_current_user = true if Rails.env.test?
     if ano_newsletter_current_user
       ano_newsletter_authorize!
     else
