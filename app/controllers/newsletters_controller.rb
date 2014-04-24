@@ -23,7 +23,7 @@ class NewslettersController < AnoNewsletter::ApplicationController
     @newsletter = Newsletter.new(newsletter_params)
 
     if @newsletter.save
-      redirect_to ano_newsleter.newsletters_url, notice: 'Newsletter was successfully created.'
+      redirect_to ano_newsletter.newsletters_url, notice: 'Newsletter was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class NewslettersController < AnoNewsletter::ApplicationController
   # PATCH/PUT /newsletters/1
   def update
     if @newsletter.update(newsletter_params)
-      redirect_to ano_newsleter.newsletters_url, notice: 'Newsletter was successfully updated.'
+      redirect_to ano_newsletter.newsletters_url, notice: 'Newsletter was successfully updated.'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class NewslettersController < AnoNewsletter::ApplicationController
   # DELETE /newsletters/1
   def destroy
     @newsletter.destroy
-    redirect_to ano_newsleter.newsletters_url, notice: 'Newsletter was successfully destroyed.'
+    redirect_to ano_newsletter.newsletters_url, notice: 'Newsletter was successfully destroyed.'
   end
 
   private
