@@ -56,7 +56,7 @@ class NewslettersController < AnoNewsletter::ApplicationController
     end
 
     def authorize_resource
-      model = (@media || Newsletter)
+      model = (@newsletter || Newsletter)
       @authorization_adapter.try(:authorize, params[:action], model)
     end
 end
