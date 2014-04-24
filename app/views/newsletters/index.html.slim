@@ -7,7 +7,7 @@
     .col-xs-5
       - if authorized
         .pull-right
-          = link_to '+ New Newsletter', new_newsletter_path
+          = link_to '+ New Newsletter', ano_newsletter.new_newsletter_path
         .clearfix
 
   .row
@@ -24,9 +24,9 @@
                     -if authorized
                       span
                         = " ("
-                        = link_to 'edit', edit_newsletter_path(newsletter)
+                        = link_to 'edit', ano_newsletter.edit_newsletter_path(newsletter)
                         = "|"
-                        = link_to 'delete', newsletter_path(newsletter), method: :delete, data: {confirm: 'Are you sure?'}
+                        = link_to 'delete', ano_newsletter.newsletter_path(newsletter), method: :delete, data: {confirm: 'Are you sure?'}
                         = ")"
                     .text-muted=newsletter.title
                     p=newsletter.description
