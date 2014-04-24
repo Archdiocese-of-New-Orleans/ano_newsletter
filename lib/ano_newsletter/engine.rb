@@ -45,13 +45,16 @@ module AnoNewsletter
 
     initializer "ano_newsletter.assets.precompile" do |app|
       app.config.assets.precompile += %w(ano_newsletter.css ano_newsletter.js)
-      AnoNewsletter.authorize_with :cancan
     end
 
     initializer "ano_newsletter.hooks" do
       if Object.const_defined?("CanCan")
         require "ano_newsletter/hooks/cancan"
       end
+    end
+
+    initializer "ano_newsletter.finisher_hook" do
+      AnoNewsletter.authorize_with :cancan
     end
 
     initializer :append_migrations do |app|
