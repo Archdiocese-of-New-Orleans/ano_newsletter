@@ -1,4 +1,5 @@
-= bootstrap_form_for(@newsletter, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f|
+- url = @newsletter.new_record? ? ano_newsletter.newsletters_path : ano_newsletter.newsletter_path(@newsletter)
+= bootstrap_form_for(@newsletter, url: url, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f|
 
   = f.text_field :released_at, control_col: "col-sm-3", label: 'Publish on', help: 'Select when to make the newsletter available for download.', class:'datetimepicker', data: { "date-format" => 'YYYY/MM/DD hh:mm A'}, value: (f.object.released_at.strftime("%Y-%m-%d %H:%M %P") rescue nil)
   = f.text_field :title, help: 'Optional title'
