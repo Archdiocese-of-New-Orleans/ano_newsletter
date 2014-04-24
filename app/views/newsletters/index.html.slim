@@ -5,7 +5,7 @@
     .col-xs-7
       h1 Newsletters
     .col-xs-5
-      - if authorized
+      - if @authorization_adapter.try(:authorized?, :new, Newsletter)
         .pull-right
           = link_to '+ New Newsletter', ano_newsletter.new_newsletter_path
         .clearfix
