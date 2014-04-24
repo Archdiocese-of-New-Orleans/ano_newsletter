@@ -5,8 +5,6 @@ class AnoNewsletter::ApplicationController < ApplicationController
   private
 
   def auth
-    p ano_newsletter_current_user
-    p ano_newsletter_authorize!
     # ano_newsletter_current_user = true if Rails.env.development?
     if ano_newsletter_current_user || ![:index, :show].include?(action_name.to_sym)
       ano_newsletter_authorize!
