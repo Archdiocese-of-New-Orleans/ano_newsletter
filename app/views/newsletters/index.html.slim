@@ -20,7 +20,8 @@
               ul.media-list
                 li.media
                   .media-body
-                    span.h4=newsletter.pretty_date
+                    =link_to newsletter.asset.url do
+                      span.h4=newsletter.pretty_date
                     -if authorized
                       span
                         = " ("
