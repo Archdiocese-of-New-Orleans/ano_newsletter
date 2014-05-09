@@ -11,7 +11,7 @@ class Newsletter < ActiveRecord::Base
   }
 
   def pretty_date
-    released_at.strftime("%a, %b %e %Y")
+    released_at.strftime("%b %e %Y")
   end
 
   if defined? rails_admin
