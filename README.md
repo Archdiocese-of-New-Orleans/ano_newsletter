@@ -1,6 +1,9 @@
 AnoNewsletter
 ======
 Newsletter app for the ano_ suite of rails engines
+```
+gem 'ano_newsletter, github: 'archno/ano_newsletter'
+```
 
 Add to your routes:
 ```ruby
