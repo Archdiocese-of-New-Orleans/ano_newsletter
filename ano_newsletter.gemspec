@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails'
   s.add_dependency 'jquery-ui-rails'
   s.add_dependency 'paperclip'
-  s.add_dependency 'momentjs-rails', '~> 2.5.0'
+  s.add_dependency 'momentjs-rails', '~> 2.8'
   s.add_dependency 'bootstrap3-datetimepicker-rails'
   s.add_dependency 'cancan'
   s.add_dependency 'bootstrap_form'
