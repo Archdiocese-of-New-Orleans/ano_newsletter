@@ -1,6 +1,6 @@
 class AnoNewsletter::ApplicationController < ApplicationController
 
-  before_filter :auth
+  before_action :auth
 
   private
 

@@ -1,7 +1,7 @@
 class NewslettersController < AnoNewsletter::ApplicationController
 
   before_action :set_newsletter, only: [:edit, :update, :destroy]
-  before_filter :authorize_resource, except: [:index]
+  before_action :authorize_resource, except: [:index]
 
   # GET /newsletters
   def index
