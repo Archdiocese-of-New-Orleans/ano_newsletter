@@ -20,8 +20,9 @@
               ul.media-list
                 li.media
                   .media-body
-                    =link_to newsletter.asset.url do
-                      span.h4=newsletter.pretty_date
+                    - if newsletter.asset.attached?
+                      =link_to newsletter.asset.service_url do
+                        span.h4=newsletter.pretty_date
                     -if authorized
                       span
                         = " ("
@@ -43,6 +44,6 @@
     .col-sm-3
       .row
         .col-sm-12
-          - if @current_newsletter
-            .well.well-sm Download our current #{link_to @current_newsletter.pretty_date, @current_newsletter.asset.url} newsletter.  You will need the #{link_to 'Adobe Acrobat reader', 'https://get.adobe.com/reader/', target: :blank } to open the file.
+          - if @current_newsletter && @current_newsletter.asset.attached?
+            .well.well-sm Download our current #{link_to @current_newsletter.pretty_date, @current_newsletter.asset.service_url} newsletter.  You will need the #{link_to 'Adobe Acrobat reader', 'https://get.adobe.com/reader/', target: :blank } to open the file.
 

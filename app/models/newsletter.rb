@@ -1,9 +1,11 @@
 class Newsletter < ActiveRecord::Base
 
-  has_attached_file :asset
-  validates_attachment_content_type :asset, :content_type => /^application\//, :message => 'file type is not allowed'
+  # has_attached_file :asset
+  # validates_attachment_content_type :asset, :content_type => /^application\//, :message => 'file type is not allowed'
+  # validates_attachment_presence :asset
 
-  validates_attachment_presence :asset
+  has_one_attached :asset
+
   validates_presence_of :released_at
 
   scope :archive, ->{
