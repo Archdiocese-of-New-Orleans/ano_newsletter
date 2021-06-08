@@ -1,5 +1,7 @@
 class Newsletter < ActiveRecord::Base
 
+  include DuplicateActiveStorage
+
   has_attached_file :asset
   validates_attachment_content_type :asset, :content_type => /^application\//, :message => 'file type is not allowed'
   validates_attachment_presence :asset
