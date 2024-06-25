@@ -21,7 +21,7 @@
                 li.media
                   .media-body
                     - if newsletter.asset.attached?
-                      =link_to newsletter.asset.service_url do
+                      =link_to rails_blob_path(newsletter.asset, disposition: "attachment", only_path: true) do
                         span.h4=newsletter.pretty_date
                     -if authorized
                       span
@@ -45,5 +45,5 @@
       .row
         .col-sm-12
           - if @current_newsletter && @current_newsletter.asset.attached?
-            .well.well-sm Download our current #{link_to @current_newsletter.pretty_date, @current_newsletter.asset.service_url} newsletter.  You will need the #{link_to 'Adobe Acrobat reader', 'https://get.adobe.com/reader/', target: :blank } to open the file.
+            .well.well-sm Download our current #{link_to @current_newsletter.pretty_date, rails_blob_path(@current_newsletter.asset, disposition: "attachment", only_path: true)} newsletter.  You will need the #{link_to 'Adobe Acrobat reader', 'https://get.adobe.com/reader/', target: :blank } to open the file.
 

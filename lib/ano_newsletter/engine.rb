@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'jquery-rails'
 require 'bootstrap-sass'
-require 'paperclip'
+# require 'paperclip'
 require 'momentjs-rails'
 require 'bootstrap3-datetimepicker-rails'
 

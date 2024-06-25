@@ -1,12 +1,17 @@
 - url = @newsletter.new_record? ? ano_newsletter.newsletters_path : ano_newsletter.newsletter_path(@newsletter)
-= bootstrap_form_for(@newsletter, url: url, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f|
+= simple_form_for(@newsletter, url: url, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-4") do |f|
 
-  = f.text_field :released_at, control_col: "col-sm-3", label: 'Publish on', help: 'Select when to make the newsletter available for download.', class:'datetimepicker', data: { "date-format" => 'YYYY/MM/DD hh:mm A'}, value: (f.object.released_at.strftime("%Y-%m-%d %H:%M %P") rescue nil)
-  = f.text_field :title, help: 'Optional title'
-  = f.text_area :description, help: 'Optional description', rows: 5
-  = f.file_field :asset, label: 'Upload newsletter', help: '.pdf, .doc, etc.'
+  b Publish on
+  br
+  = f.text_field :released_at, class:'datetimepicker', value: (f.object.released_at.strftime("%Y-%m-%d %H:%M %P") rescue nil)
 
-  = f.form_group do
-    = f.submit nil, data: { disable_with: "Please wait..." }
-    | &nbsp;
-    = button_tag "Cancel", :type => 'button', :class => "btn btn-link", :onclick => "location.href = '#{ano_newsletter.newsletters_path}'"
+  = f.input :title, help: 'Optional title'
+
+  = f.input :description, help: 'Optional description', rows: 5
+
+  = f.input :asset, label: 'Upload newsletter', help: '.pdf, .doc, etc.'
+
+  / = f.form_group do
+  = f.submit nil, data: { disable_with: "Please wait..." }
+  | &nbsp;
+  = button_tag "Cancel", :type => 'button', :class => "btn btn-link", :onclick => "location.href = '#{ano_newsletter.newsletters_path}'"
